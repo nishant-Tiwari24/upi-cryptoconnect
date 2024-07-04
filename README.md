@@ -1,4 +1,4 @@
-## Getting Started
+## Flash Loan Arbitrage Arena
 
 Create a project using this example:
 
