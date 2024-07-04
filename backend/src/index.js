@@ -5,6 +5,10 @@ import transactionRoutes from './routes/transactions.js';
 import { connectDB } from './database/config.js'; 
 import bankRoutes from './routes/BankRoutes.js';
 import { config } from 'dotenv';
+import bankRoutes from './routes/bank.js';
+import moneyTransferRoutes from './routes/moneyTransferRoutes.js';
+import FLRoutes from './routes/flashLoan.js';
+
 
 config({
   path:'./.env',
@@ -18,6 +22,9 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/bank', bankRoutes);
+app.use('/api/money-transfer', moneyTransferRoutes);
+app.use('/loan', FLRoutes);
+
 
 const PORT = 5550;
 app.listen(PORT, () => {
