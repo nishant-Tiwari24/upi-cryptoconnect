@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import BankCard from './BankCard';
-import UserInfo from './UserInfo';
-import TransactionForm from './TransactionForm';
-import TransactionHistory from './TransactionHistory';
-import BarGraph from './BarGraph';
-import api from '../../utils/api';
-import Navbar from '../Navbar';
-import ScannerComponent from './ScannerComponent';
+import BankCard from '../components/Bank/BankCard';
+import UserInfo from '../components/Bank/UserInfo';
+import TransactionForm from '../components/Bank/TransactionForm';
+import TransactionHistory from '../components/Bank/TransactionHistory';
+import BarGraph from '../components/Bank/BarGraph';
+import api from '../utils/api';
+import ScannerComponent from '../components/Bank/ScannerComponent';
+// import axios from "axios";
 
 function MainTransaction() {
   const [userData, setUserData] = useState(null);
@@ -15,7 +15,7 @@ function MainTransaction() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await api.get('/bank/user-details');  
+        const response = await api.get(`/bank/user-details`);  
         setUserData(response.data);
       } catch (err) {
         console.error(err);
@@ -24,7 +24,7 @@ function MainTransaction() {
 
     const fetchTransactions = async () => {
       try {
-        const response = await api.get('/money-transfer');
+        const response = await api.get(`/money-transfer`);
         setTransactions(response.data);
       } catch (err) {
         console.error(err);
@@ -37,7 +37,6 @@ function MainTransaction() {
 
   return (
     <>
-    <Navbar/>
     <div className="bg-black text-zinc-200 min-h-screen p-6">
         
       <div className="mx-auto">

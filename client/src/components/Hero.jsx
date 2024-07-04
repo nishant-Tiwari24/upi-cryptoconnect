@@ -1,5 +1,5 @@
 import styles from "../style";
-import { discount, robot, card, group } from "../assets";
+import { discount, robot, card } from "../assets";
 import GetStarted from "./GetStarted";
 import { Link } from "react-router-dom";
 
@@ -33,7 +33,7 @@ const Hero = () => {
       </div>
 
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={group} alt="billing" className="w-[80%] h-[90%] relative z-[5]" />
+        <img src={card} alt="billing" className="w-[80%] h-[90%] relative z-[5]" />
 
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
         <div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" />

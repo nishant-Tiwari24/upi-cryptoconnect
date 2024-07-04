@@ -20,7 +20,7 @@ const TransactionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/money-transfer/create', formData);
+      const response = await api.post(`/money-transfer/create`, formData);
       console.log(response.data);
       toast.success('Transaction successful!');
     } catch (err) {

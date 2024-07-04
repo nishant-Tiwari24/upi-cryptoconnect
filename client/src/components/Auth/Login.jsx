@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from '../../utils/api';
 import toast, { Toaster } from 'react-hot-toast';
+import Cookies from "js-cookie"
 
 const notify = () => toast('Login Successfully');
 
@@ -13,10 +14,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/auth/login', { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, { email, password });
+      Cookies.set('token', response.data.token, {expires: 1});
+      Cookies.set('userEmail', email, {expires: 1});
       localStorage.setItem('token', response.data.token);
+      window.location.href = '/'
       notify();
-      window.location.href='/transaction'
     } catch (error) {
       setError('Invalid email or password. Please try again.');
       console.error('Login error:', error);

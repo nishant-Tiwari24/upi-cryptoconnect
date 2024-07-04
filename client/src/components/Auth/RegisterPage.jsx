@@ -9,7 +9,7 @@ import Register from "./Register";
 const RegisterPage = () => (
   <div className="bg-black w-full overflow-hidden">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <Navbar />
+        {/* <Navbar /> */}
     </div>
     <section>
     <div className="flex justify-around gap-8">
